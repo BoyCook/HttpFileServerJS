@@ -1,5 +1,5 @@
 # Description
-A simple file based HTTP server in node.js
+A simple file based HTTP server in node.js. It will serve up content from the filesystem based upon the URL path provided.
 
 # Usage
 
