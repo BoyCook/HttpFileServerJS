@@ -4,8 +4,7 @@ REPORTER = dot
 
 spec: test-spec
 
-test:
-	node test.js
+test: test-spec
 
 test-spec:
 	jasmine-node test/spec --junitreport --forceexit
@@ -29,5 +28,3 @@ lib-cov:
 clean:
 	rm -f reports/*
 	rm -fr lib-cov
-
-.PHONY: test test-unit test-acceptance benchmark clean
