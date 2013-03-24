@@ -29,7 +29,7 @@
         "string-builder": "https://github.com/BoyCook/StringBuilderJS/tarball/master"
     },
     "devDependencies": {
-        "jasmine-node": "1.0.26"
+        "should": "latest"
     },
     "bundledDependencies": [
         "string-builder"

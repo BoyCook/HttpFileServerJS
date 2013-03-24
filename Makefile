@@ -1,23 +1,22 @@
 
-TESTS = test/*.js
-REPORTER = dot
+TESTS = test/spec
+REPORTER = xUnit
+
+test: test-mocha
 
 spec: test-spec
 
-test: test-spec
-
 test-spec:
-	jasmine-node test/spec --junitreport --forceexit
+	jasmine-node test/spec/ObjectUtilsSpec.js --junitreport --verbose --captureExceptions --forceexit
 
 ui-test:
 	casperjs test test/ui
 
 test-mocha:
 	@NODE_ENV=test mocha \
-	    --require should \
 	    --timeout 200 \
 		--reporter $(REPORTER) \
-		$(TESTS)
+		$(TESTS) > reports/TESTS.xml
 
 test-cov: lib-cov
 	@RPSLP_COV=1 $(MAKE) test

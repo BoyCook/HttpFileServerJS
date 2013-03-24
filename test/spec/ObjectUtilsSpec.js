@@ -1,16 +1,17 @@
-Object = require('../../lib/objectutils');
+var should = require('should');
+var Object = require('../../lib/objectutils');
 
 describe('ObjectUtils', function () {
 
     it('should think defined is defined', function () {
-        expect(Object.isDefined({})).toBeTruthy();
+        Object.isDefined({}).should.be.true;
     });
 
     it('should not think undefined is defined', function () {
-        expect(Object.isDefined(undefined)).toBeFalsy();
+        Object.isDefined(undefined).should.be.false;
     });
 
     it('should think undefined is undefined', function () {
-        expect(Object.isUndefined(undefined)).toBeTruthy();
+        Object.isUndefined(undefined).should.be.true;
     });
 });
