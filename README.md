@@ -3,7 +3,7 @@ A simple file based HTTP server in node.js. It will serve up content from the fi
 
 # Usage
 
-    var server = new HttpServer({port: 8080});
+    var server = new HttpServer({port: 8080, baseDir: '.'});
     server.listen();
 
 ## Tests

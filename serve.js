@@ -1,2 +1,2 @@
 var HttpServer = require('./lib/server').HttpServer;
-new HttpServer({port: 8080}).listen();
+new HttpServer({port: 8080, baseDir: '.'}).listen();
