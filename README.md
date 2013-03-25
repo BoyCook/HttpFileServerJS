@@ -17,12 +17,12 @@ This will list contents of directory `cars`
 
     GET /cars
 
-This will serve the file '/cars/bmw.html'
+This will serve the file `/cars/bmw.html`
 
     GET /cars/bmw
     Accept text/html
 
-This will serve the file '/cars/bmw.html'
+This will serve the file `/cars/bmw.html`
 
     GET /cars/bmw.html
 
