@@ -26,6 +26,7 @@
         "Server"
     ],
     "dependencies": {
+        "object-utils": "https://github.com/BoyCook/ObjectUtilsJS/tarball/master",
         "string-builder": "https://github.com/BoyCook/StringBuilderJS/tarball/master"
     },
     "devDependencies": {
