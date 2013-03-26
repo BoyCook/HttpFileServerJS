@@ -33,4 +33,4 @@ This will serve the file `/cars/bmw.html`
 
 ## Tests
 
-    jasmine-node test/spec --junitreport --forceexit
+    make test
