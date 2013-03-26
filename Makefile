@@ -7,7 +7,7 @@ test: test-mocha
 spec: test-spec
 
 test-spec:
-	jasmine-node test/spec/ObjectUtilsSpec.js --junitreport --verbose --captureExceptions --forceexit
+	jasmine-node test/spec/XMLObjectSpec.js --junitreport --verbose --captureExceptions --forceexit
 
 ui-test:
 	casperjs test test/ui
