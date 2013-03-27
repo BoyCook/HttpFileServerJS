@@ -1,36 +1,41 @@
 var should = require('should');
 var Parser = require('../../lib/parser').Parser;
+var data = ['1', '2', '3'];
+var expected = {
+    xml: '<resources><resource>1</resource><resource>2</resource><resource>3</resource></resources>',
+    html: '<div><div><a href="1">1</a></div><div><a href="2">2</a></div><div><a href="3">3</a></div></div>',
+    json: { "resources": ['1', '2', '3'] }
+};
 
 describe('Parser', function () {
     describe('#asXML', function () {
         it('should list as XML properly', function () {
-            var xml = Parser.asXML('items', 'item', ['1', '2', '3']);
-            xml.should.eql('<items><item>1</item><item>2</item><item>3</item></items>');
+            var xml = Parser.asXML('resources', 'resource', data);
+            xml.should.eql(expected.xml);
         });
     });
     describe('#asJSON', function () {
         it('should list as JSON properly', function () {
-            var json = Parser.asJSON('item', ['1', '2', '3']);
-            json.should.eql({ "item": ['1', '2', '3'] });
+            var json = Parser.asJSON('resources', data);
+            json.should.eql(expected.json);
         });
     });
     describe('#resourceJSON', function () {
         it('should list as JSON properly', function () {
-            var json = Parser.resourceJSON({data: ['1', '2', '3']});
-            json.should.eql(JSON.stringify({ "resources": ['1', '2', '3'] }));
+            var json = Parser.resourceJSON({data: data});
+            json.should.eql(JSON.stringify(expected.json));
         });
     });
     describe('#resourceXML', function () {
         it('should list as XML properly', function () {
-            var xml = Parser.resourceXML({data: ['1', '2', '3']});
-            xml.should.eql('<resources><resource>1</resource><resource>2</resource><resource>3</resource></resources>');
+            var xml = Parser.resourceXML({data: data});
+            xml.should.eql(expected.xml);
         });
     });
     describe('#resourceHTML', function () {
         it('should list as HTML properly', function () {
-            var expected = '<div><div><a href="1">1</a></div><div><a href="2">2</a></div><div><a href="3">3</a></div></div>';
-            var html = Parser.resourceHTML({data: ['1', '2', '3']});
-            html.should.eql(expected);
+            var html = Parser.resourceHTML({data: data});
+            html.should.eql(expected.html);
         });
     });
 });
