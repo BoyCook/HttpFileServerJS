@@ -1,5 +1,5 @@
 var should = require('should');
-var XML = require('../../lib/xmlobject').XML;
+var XML = require('../../index.js').XML;
 
 describe('XML', function () {
     it('should create node with value', function () {

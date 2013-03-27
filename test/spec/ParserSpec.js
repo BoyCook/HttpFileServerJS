@@ -1,5 +1,5 @@
 var should = require('should');
-var Parser = require('../../lib/parser').Parser;
+var Parser = require('../../index.js').Parser;
 var data = ['1', '2', '3'];
 var expected = {
     xml: '<resources><resource>1</resource><resource>2</resource><resource>3</resource></resources>',
