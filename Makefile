@@ -4,11 +4,6 @@ REPORTER = xUnit
 
 test: test-mocha
 
-spec: test-spec
-
-test-spec:
-	jasmine-node test/spec/XMLObjectSpec.js --junitreport --verbose --captureExceptions --forceexit
-
 ui-test:
 	casperjs test test/ui
 
