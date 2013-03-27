@@ -1,10 +1,13 @@
 
 TESTS = test/spec
 REPORTER = spec
+XML_FILE = reports/TEST-all.xml
+HTML_FILE = reports/coverage.html
 
 test: test-mocha
 
-test-ci: test-mocha-ci
+test-ci:
+	$(MAKE) test-mocha REPORTER=xUnit > $(XML_FILE)
 
 ui-test:
 	casperjs test test/ui
@@ -15,14 +18,8 @@ test-mocha:
 		--reporter $(REPORTER) \
 		$(TESTS)
 
-test-mocha-ci:
-	@NODE_ENV=test mocha \
-	    --timeout 200 \
-		--reporter xUnit \
-		$(TESTS) > reports/TEST-all.xml
-
 test-cov: lib-cov
-	@RPSLP_COV=1 $(MAKE) test
+	@HFS_COV=1 $(MAKE) test-mocha REPORTER=html-cov > $(HTML_FILE)
 
 lib-cov:
 	jscoverage lib lib-cov
