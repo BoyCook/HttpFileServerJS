@@ -1,8 +1,10 @@
 
 TESTS = test/spec
-REPORTER = xUnit
+REPORTER = spec
 
 test: test-mocha
+
+test-ci: test-mocha-ci
 
 ui-test:
 	casperjs test test/ui
@@ -11,6 +13,12 @@ test-mocha:
 	@NODE_ENV=test mocha \
 	    --timeout 200 \
 		--reporter $(REPORTER) \
+		$(TESTS)
+
+test-mocha-ci:
+	@NODE_ENV=test mocha \
+	    --timeout 200 \
+		--reporter xUnit \
 		$(TESTS) > reports/TEST-all.xml
 
 test-cov: lib-cov
