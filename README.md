@@ -33,4 +33,10 @@ This will serve the file `/cars/bmw.html`
 
 ## Tests
 
+Running the tests locally:
+
     make test
+
+Running the tests in CI (will produce xUnit style XML report file):
+
+    make test-ci
