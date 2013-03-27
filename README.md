@@ -33,6 +33,10 @@ This will serve the file `/cars/bmw.html`
 
 ## Tests
 
+Running all the tests:
+
+    make test-all
+
 Running the tests locally:
 
     make test
@@ -40,3 +44,8 @@ Running the tests locally:
 Running the tests in CI (will produce xUnit style XML report file):
 
     make test-ci
+
+Running the tests with coverage (will Mocha html report):
+
+    make test-cov
+
