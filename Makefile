@@ -9,6 +9,8 @@ test: test-mocha
 test-ci:
 	$(MAKE) test-mocha REPORTER=xUnit > $(XML_FILE)
 
+test-all: test-ci test-cov
+
 ui-test:
 	casperjs test test/ui
 
