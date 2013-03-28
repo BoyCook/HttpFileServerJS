@@ -30,6 +30,7 @@
         "string-builder": "https://github.com/BoyCook/StringBuilderJS/tarball/master"
     },
     "devDependencies": {
+        "request": "*",
         "should": "latest"
     },
     "bundledDependencies": [

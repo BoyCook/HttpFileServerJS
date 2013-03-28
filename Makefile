@@ -11,7 +11,7 @@ test-ci:
 
 test-all: test-ci test-cov
 
-ui-test:
+test-ui: start
 	casperjs test test/ui
 
 test-mocha:
