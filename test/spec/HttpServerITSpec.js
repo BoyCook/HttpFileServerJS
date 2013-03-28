@@ -4,9 +4,9 @@ var url = 'http://localhost:8080';
 var HttpServer = require('../../index.js').HttpServer;
 var expected = {
     dir: {
-        json: {"resources":["spec","ui"]},
-        xml: '<resources><resource>spec</resource><resource>ui</resource></resources>',
-        html: '<div><div><a href="/test/spec">spec</a></div><div><a href="/test/ui">ui</a></div></div>'
+        json: {"resources":["spec"]},
+        xml: '<resources><resource>spec</resource></resources>',
+        html: '<div><div><a href="/test/spec">spec</a></div></div>'
     }
 };
 
