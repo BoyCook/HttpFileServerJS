@@ -11,10 +11,8 @@ var expected = {
 };
 
 describe('HttpServer', function () {
-    var service;
-
     before(function(done) {
-        service = new HttpServer({port: 8080, baseDir: '.'}).listen();
+        new HttpServer({port: 8080, baseDir: '.'}).listen();
         done();
     });
 
