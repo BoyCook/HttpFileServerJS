@@ -9,7 +9,7 @@ test: test-mocha
 test-ci:
 	$(MAKE) test-mocha REPORTER=xUnit > $(XML_FILE)
 
-test-all: test-ci test-cov
+test-all: clean test-ci test-cov
 
 test-ui: start
 	casperjs test test/ui
