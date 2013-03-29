@@ -26,4 +26,10 @@ describe("Browsing", function () {
 //            browser.queryAll('a').length.should.eql(1);
         }).then(done, done);
     });
+
+    it("should get the file", function (done) {
+        browser.visit(url + '/test/spec/BrowserSpec.js').then(function () {
+            browser.location.pathname.should.eql('/test/spec/BrowserSpec.js');
+        }).then(done, done);
+    });
 });
