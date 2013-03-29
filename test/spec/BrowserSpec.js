@@ -17,7 +17,7 @@ describe("Browsing", function () {
         server.stop(done);
     });
 
-    it("should list the test directory", function (done) {
+    it("should list the test directory ok", function (done) {
         browser.visit(url + '/test').then(function () {
             browser.location.pathname.should.eql('/test');
 //            assert.equal(browser.text('a'), 'spec');
@@ -27,9 +27,16 @@ describe("Browsing", function () {
         }).then(done, done);
     });
 
-    it("should get the file", function (done) {
+    it("should get a file ok", function (done) {
         browser.visit(url + '/test/spec/BrowserSpec.js').then(function () {
             browser.location.pathname.should.eql('/test/spec/BrowserSpec.js');
         }).then(done, done);
+    });
+
+    it("should not get get an invalid path", function (done) {
+        browser.visit(url + '/test/spec/XXXXX', function () {
+            browser.statusCode.should.eql(404);
+            done();
+        });
     });
 });
