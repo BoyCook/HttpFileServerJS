@@ -4,7 +4,7 @@ var HttpServer = require('../../index.js').HttpServer;
 var Browser = require("zombie");
 var url = 'http://localhost:8080';
 
-describe.skip("Browsing", function () {
+describe("Browsing", function () {
     var browser;
     var server;
 
@@ -13,21 +13,17 @@ describe.skip("Browsing", function () {
         server = new HttpServer({port: 8080, baseDir: '.'}).start(done);
     });
 
-//    after(function (done) {
-//        server.stop(done);
-//    });
-
+    after(function (done) {
+        server.stop(done);
+    });
 
     it("should list the test directory", function (done) {
         browser.visit(url + '/test').then(function () {
-            assert.equal(browser.location.pathname, '/test');
+            browser.location.pathname.should.eql('/test');
 //            assert.equal(browser.text('a'), 'spec');
-
-//            assert.lengthOf(, 2);
-
 //            browser.document.querySelectorAll('div').length.should.eql(2);
 //            browser.queryAll('div').length.should.eql(2);
-            browser.queryAll('a').length.should.eql(1);
+//            browser.queryAll('a').length.should.eql(1);
         }).then(done, done);
     });
 });

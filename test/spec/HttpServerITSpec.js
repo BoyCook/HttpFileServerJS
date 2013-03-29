@@ -17,9 +17,9 @@ describe('HttpServer', function () {
         server = new HttpServer({port: 8080, baseDir: '.'}).start(done);
     });
 
-//    after(function (done) {
-//        server.stop(done);
-//    });
+    after(function (done) {
+        server.stop(done);
+    });
 
     describe('#getDir', function () {
         it('should list directory contents as HTML by default', function (done) {
