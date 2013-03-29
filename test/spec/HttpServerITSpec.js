@@ -4,17 +4,22 @@ var url = 'http://localhost:8080';
 var HttpServer = require('../../index.js').HttpServer;
 var expected = {
     dir: {
-        json: {"resources":["spec"]},
+        json: {"resources": ["spec"]},
         xml: '<resources><resource>spec</resource></resources>',
         html: '<div><div><a href="/test/spec">spec</a></div></div>'
     }
 };
+var server;
 
 describe('HttpServer', function () {
-    before(function(done) {
-        new HttpServer({port: 8080, baseDir: '.'}).listen();
-        done();
+
+    before(function (done) {
+        server = new HttpServer({port: 8080, baseDir: '.'}).start(done);
     });
+
+//    after(function (done) {
+//        server.stop(done);
+//    });
 
     describe('#getDir', function () {
         it('should list directory contents as HTML by default', function (done) {
