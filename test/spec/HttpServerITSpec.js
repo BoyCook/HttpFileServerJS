@@ -22,53 +22,56 @@ describe('HttpServer', function () {
     });
 
     after(function (done) {
-        fs.unlink('./test/newfile');
         server.stop(done);
     });
 
     describe('#getDir', function () {
-        it('should list directory contents as HTML by default', function (done) {
-            request(url + '/test', function (error, response, body) {
-                response.statusCode.should.eql(200);
-                body.should.eql(expected.dir.html);
-                done();
+        it('should list directory contents as HTML by default',
+            function (done) {
+                request(url + '/test', function (error, response, body) {
+                    response.statusCode.should.eql(200);
+                    body.should.eql(expected.dir.html);
+                    done();
+                });
             });
-        });
 
         it('should list directory contents as HTML ok', function (done) {
-            request({url: url + '/test', headers: { Accept: 'text/html'}}, function (error, response, body) {
-                response.statusCode.should.eql(200);
-                body.should.eql(expected.dir.html);
-                done();
-            });
+            request({url: url + '/test', headers: { Accept: 'text/html'}},
+                function (error, response, body) {
+                    response.statusCode.should.eql(200);
+                    body.should.eql(expected.dir.html);
+                    done();
+                });
         });
 
         it('should list directory contents as JSON ok', function (done) {
-            request({url: url + '/test', headers: { Accept: 'application/json'}}, function (error, response, body) {
-                response.statusCode.should.eql(200);
-                var json = JSON.parse(body);
-                json.should.eql(expected.dir.json);
-                done();
-            });
+            request({url: url + '/test', headers: { Accept: 'application/json'}},
+                function (error, response, body) {
+                    response.statusCode.should.eql(200);
+                    var json = JSON.parse(body);
+                    json.should.eql(expected.dir.json);
+                    done();
+                });
         });
 
         it('should list directory contents as XML ok', function (done) {
-            request({url: url + '/test', headers: { Accept: 'application/xml'}}, function (error, response, body) {
-                response.statusCode.should.eql(200);
-                body.should.eql(expected.dir.xml);
-                done();
-            });
+            request({url: url + '/test', headers: { Accept: 'application/xml'}},
+                function (error, response, body) {
+                    response.statusCode.should.eql(200);
+                    body.should.eql(expected.dir.xml);
+                    done();
+                });
         });
     });
 
     describe('#getFile', function () {
         it('should get file ok', function (done) {
-            request(url + '/test/spec/HttpServerITSpec.js', function (error, response, body) {
-                response.statusCode.should.eql(200);
-//                body = JSON.parse(body);
-                //TODO: finish assertions
-                done();
-            });
+            request(url + '/test/spec/HttpServerITSpec.js',
+                function (error, response, body) {
+                    response.statusCode.should.eql(200);
+                    //TODO: finish assertions
+                    done();
+                });
         });
     });
 
@@ -83,6 +86,16 @@ describe('HttpServer', function () {
                     body = JSON.parse(body);
                     response.statusCode.should.eql(201);
                     body.should.eql(expected.file);
+                    done();
+                });
+        });
+    });
+
+    describe('#deleteFile', function () {
+        it('should create file ok', function (done) {
+            request.del(url + '/test/newfile',
+                function (error, response, body) {
+                    response.statusCode.should.eql(200);
                     done();
                 });
         });
