@@ -2,11 +2,15 @@ var should = require('should');
 var request = require('request');
 var url = 'http://localhost:8080';
 var HttpServer = require('../../index.js').HttpServer;
+var fs = require('fs');
 var expected = {
     dir: {
         json: {"resources": ["spec"]},
         xml: '<resources><resource>spec</resource></resources>',
         html: '<div><div><a href="/test/spec">spec</a></div></div>'
+    },
+    file: {
+        "data": "123"
     }
 };
 var server;
@@ -18,6 +22,7 @@ describe('HttpServer', function () {
     });
 
     after(function (done) {
+        fs.unlink('./test/newfile');
         server.stop(done);
     });
 
@@ -64,6 +69,22 @@ describe('HttpServer', function () {
                 //TODO: finish assertions
                 done();
             });
+        });
+    });
+
+    describe('#createFile', function () {
+        it('should create file ok', function (done) {
+            request.put({
+                    url: url + '/test/newfile',
+                    headers: {'content-type': 'application/json', dataType: 'json'},
+                    body: JSON.stringify(expected.file)
+                },
+                function (error, response, body) {
+                    body = JSON.parse(body);
+                    response.statusCode.should.eql(201);
+                    body.should.eql(expected.file);
+                    done();
+                });
         });
     });
 });
