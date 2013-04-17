@@ -13,18 +13,27 @@ if it's a file then it will serve the file back. If nothing is found a 404 is is
 
 # Examples
 
-This will list contents of directory `cars`
+List contents of directory `cars`
 
     GET /cars
 
-This will serve the file `/cars/bmw.html`
+Serve the file `./cars/bmw.html`
 
     GET /cars/bmw
     Accept text/html
 
-This will serve the file `/cars/bmw.html`
+or
 
     GET /cars/bmw.html
+
+Create directory `bikes`
+
+    PUT /bikes
+
+Create file `harley`
+
+    PUT /bikes/harley
+    Data { "name": "Harley Davidson" }
 
 # Usage
 
