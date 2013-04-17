@@ -1,3 +1,5 @@
+[![Build Status](http://craigcook.co.uk/build/job/HTTP%20File%20Server/badge/icon)](http://craigcook.co.uk/build/job/HTTP%20File%20Server/)
+
 ## Description
 A simple file based HTTP server in node.js. It will serve up content from the filesystem based upon the URL path provided
 and the content type in 'Accept' header. This is quite useful when creating stubs for testing, or just plain HTTP file serving.
@@ -61,3 +63,8 @@ Produce xUnit style XML report file:
 Running the tests with coverage and producing HTML Mocha coverage report file:
 
     make test-cov
+
+## Links
+
+* http://craigcook.co.uk/build/job/HTTP%20File%20Server
+* http://craigcook.co.uk/quality/dashboard/index/241
