@@ -2,7 +2,6 @@ var should = require('should');
 var request = require('request');
 var url = 'http://localhost:8080';
 var HttpServer = require('../../index.js').HttpServer;
-var fs = require('fs');
 var expected = {
     dir: {
         json: {"resources": ["spec"]},

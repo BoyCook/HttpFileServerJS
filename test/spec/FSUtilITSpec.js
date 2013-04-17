@@ -61,4 +61,22 @@ describe('FSUtil', function () {
             should.exist(result);
         });
     });
+
+    describe('#save', function () {
+        it('should create directory ok', function () {
+            fs.save('./test/temp');
+        });
+        it('should save file to disc ok', function () {
+            fs.save('./test/temp/test1', {});
+        });
+    });
+
+    describe('#delete', function () {
+        it('should delete file ok', function () {
+            fs.delete('./test/temp/test1', {});
+        });
+        it('should delete directory ok', function () {
+            fs.delete('./test/temp');
+        });
+    });
 });
