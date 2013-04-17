@@ -12,7 +12,7 @@ describe('FSUtil', function () {
             result.should.be.false;
         });
         it('should be false for file', function () {
-            var result = fs.isDir('./test/spec/FSUtilSpec.js');
+            var result = fs.isDir('./test/spec/FSUtilITSpec.js');
             result.should.be.false;
         });
     });
@@ -27,14 +27,14 @@ describe('FSUtil', function () {
             should.not.exist(result);
         });
         it('should not return result for a file', function () {
-            var result = fs.getDir('./test/spec/FSUtilSpec.js');
+            var result = fs.getDir('./test/spec/FSUtilITSpec.js');
             should.not.exist(result);
         });
     });
 
     describe('#getFile', function () {
         it('should return result for valid file', function () {
-            var result = fs.getFile('./test/spec/FSUtilSpec.js');
+            var result = fs.getFile('./test/spec/FSUtilITSpec.js');
             should.exist(result);
         });
         it('should not return result for invalid file', function () {
@@ -53,11 +53,11 @@ describe('FSUtil', function () {
             should.exist(result);
         });
         it('should return result for valid file', function () {
-            var result = fs.getData('./test/spec/FSUtilSpec.js');
+            var result = fs.getData('./test/spec/FSUtilITSpec.js');
             should.exist(result);
         });
         it('should return result for valid file with extension', function () {
-            var result = fs.getData('./test/spec/FSUtilSpec', 'js');
+            var result = fs.getData('./test/spec/FSUtilITSpec', 'js');
             should.exist(result);
         });
     });
