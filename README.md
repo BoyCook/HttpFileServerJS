@@ -46,13 +46,13 @@ You must first install node.js http://nodejs.org
 
 ## Tests
 
-Running all the tests (calls test-ci and test-cov):
-
-    make test-all
-
-Displaying results in the terminal:
+Displaying results in the terminal (common usage):
 
     make test
+
+Running all the tests (calls test-ci and test-cov - best used by CI server):
+
+    make test-all
 
 Produce xUnit style XML report file:
 
@@ -61,4 +61,3 @@ Produce xUnit style XML report file:
 Running the tests with coverage and producing HTML Mocha coverage report file:
 
     make test-cov
-
