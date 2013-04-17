@@ -26,11 +26,11 @@ or
 
     GET /cars/bmw.html
 
-Create directory `bikes`
+Create directory `./bikes`
 
     PUT /bikes
 
-Create file `harley`
+Create file `./bikes/harley`
 
     PUT /bikes/harley
     Data { "name": "Harley Davidson" }
