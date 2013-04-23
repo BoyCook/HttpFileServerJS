@@ -20,6 +20,7 @@ If nothing is found a 404 is issued. The logic the server uses is:
     server.start();
 
 ## Parameters
+* `port` this is the port the service will use
 * `baseDir` this is the base directory that the service will look in for data files
 
 ## Examples
