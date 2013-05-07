@@ -3,7 +3,7 @@ new HttpServer({
     port: 8080,
     baseDir: '.',
     verbose: true,
-    paths: [
-        { path: '/test/:id', params: {makeDir: true}}
+    routes: [
+        { path: '/test', makeDir: true }
     ]
 }).start();
