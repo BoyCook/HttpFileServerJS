@@ -20,7 +20,7 @@ describe('HttpServer', function () {
             port: 8080,
             baseDir: '.',
             routes: [
-                { path: '/test/newfile', makeDir: true }
+                { path: '/test/:filename', makeDir: true }
             ]
         }).start(done);
     });
@@ -95,7 +95,7 @@ describe('HttpServer', function () {
         });
     });
 
-    describe.skip('#deleteFile', function () {
+    describe('#deleteFile', function () {
         it('should create file ok', function (done) {
             request.del(url + '/test/newfile',
                 function (error, response, body) {
