@@ -4,6 +4,6 @@ new HttpServer({
     baseDir: '.',
     verbose: true,
     routes: [
-        { path: '/test', makeDir: true }
+        { path: '/test/newfile', makeDir: true }
     ]
 }).start();
