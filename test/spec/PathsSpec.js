@@ -12,23 +12,19 @@ describe('Paths', function () {
 
     describe('#match', function () {
         it('should match path', function () {
-            var result = paths.match('/users');
-            result.should.be.true;
+            should.exist(paths.match('/users'));
         });
 
         it('should not match invalid path', function () {
-            var result = paths.match('/user');
-            result.should.be.false;
+            should.not.exist(paths.match('/user'));
         });
 
         it('should match path with parameter ok', function () {
-            var result = paths.match('/users/boycook');
-            result.should.be.true;
+            should.exist(paths.match('/users/boycook'));
         });
 
         it('should not match invalid path with param', function () {
-            var result = paths.match('/user/boycook');
-            result.should.be.false;
+            should.not.exist(paths.match('/user/boycook'));
         });
     });
 });
