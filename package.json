@@ -1,6 +1,6 @@
 {
     "name": "http-file-server",
-    "version": "0.0.1-SNAPSHOT",
+    "version": "0.0.1-RC01",
     "author": "BoyCook",
     "description": "Simple file based HTTP server in JavaScript for node.js",
     "contributors": [

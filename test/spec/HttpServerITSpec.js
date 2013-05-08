@@ -87,6 +87,7 @@ describe('HttpServer', function () {
                     body: JSON.stringify(expected.file)
                 },
                 function (error, response, body) {
+                    //TODO: assert dir and file on filesystem
                     body = JSON.parse(body);
                     response.statusCode.should.eql(201);
                     body.should.eql(expected.file);
