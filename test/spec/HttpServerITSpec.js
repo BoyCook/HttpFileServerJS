@@ -97,7 +97,7 @@ describe('HttpServer', function () {
     });
 
     describe('#deleteFile', function () {
-        it('should create file ok', function (done) {
+        it('should delete file ok', function (done) {
             request.del(url + '/test/newfile',
                 function (error, response, body) {
                     response.statusCode.should.eql(200);
