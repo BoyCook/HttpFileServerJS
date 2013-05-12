@@ -47,6 +47,16 @@ Create file `./bikes/harley`
     PUT /bikes/harley
     Data { "name": "Harley Davidson" }
 
+## Parameters
+
+Possible parameters are:
+
+* `port` this is the port the service bill bind to
+* `baseDir` this is the base directory the service will look into for data
+* `verbose` enable verbose mode i.e. logging
+* `routes` explicitly define possible routes
+* `strictRoutes` when enabled URL path must match a defined route (or 404 is given)
+
 ## Tests
 
 Displaying results in the terminal (common usage):
