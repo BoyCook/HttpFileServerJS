@@ -10,7 +10,8 @@ var expected = {
     },
     file: {
         "data": "123"
-    }
+    },
+    invalid: '404 - invalid path'
 };
 var server;
 
@@ -21,7 +22,7 @@ describe('HttpServer', function () {
             baseDir: '.',
             strictRoutes: true,
             routes: [
-                '/test', '/test/spec/HttpServerStrictITSpec.js'
+                '/test', '/test/newfile', '/test/spec/HttpServerStrictITSpec.js'
             ]
         }).start(done);
     });
@@ -43,7 +44,7 @@ describe('HttpServer', function () {
             function (done) {
                 request(url + '/test/spec', function (error, response, body) {
                     response.statusCode.should.eql(404);
-//                    body.should.eql(expected.dir.html);
+                    body.should.eql(expected.invalid);
                     done();
                 });
         });
@@ -63,14 +64,14 @@ describe('HttpServer', function () {
             request(url + '/test/spec/HttpServerITSpec.js',
                 function (error, response, body) {
                     response.statusCode.should.eql(404);
-                    //TODO: finish body assertions
+                    body.should.eql(expected.invalid);
                     done();
                 });
         });
     });
 
-    describe.skip('#createFile', function () {
-        it('should create file ok', function (done) {
+    describe('#createFile', function () {
+        it('should create strict file ok', function (done) {
             request.put({
                     url: url + '/test/newfile',
                     headers: {'content-type': 'application/json', dataType: 'json'},
@@ -84,13 +85,35 @@ describe('HttpServer', function () {
                     done();
                 });
         });
+
+        it('should not create non-strict file ok', function (done) {
+            request.put({
+                    url: url + '/test/newfilenotstrict',
+                    headers: {'content-type': 'application/json', dataType: 'json'},
+                    body: JSON.stringify(expected.file)
+                },
+                function (error, response, body) {
+                    response.statusCode.should.eql(404);
+                    body.should.eql(expected.invalid);
+                    done();
+                });
+        });
     });
 
-    describe.skip('#deleteFile', function () {
-        it('should create file ok', function (done) {
+    describe('#deleteFile', function () {
+        it('should delete strict file ok', function (done) {
             request.del(url + '/test/newfile',
                 function (error, response, body) {
                     response.statusCode.should.eql(200);
+                    done();
+                });
+        });
+
+        it('should not delete non-strict file', function (done) {
+            request.del(url + '/test/spec/HttpServerITSpec.js',
+                function (error, response, body) {
+                    response.statusCode.should.eql(404);
+                    body.should.eql(expected.invalid);
                     done();
                 });
         });
